@@ -16,7 +16,7 @@ public class UsuarioService{
         return ur.save(u);
     }
 
-    public Usuario buscarUsuarioPorId(Long id){
+    public Usuario buscarUsuarioPorId(Integer id){
         return ur.findById(id).orElse(null);
     }
 

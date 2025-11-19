@@ -1,5 +1,6 @@
-package java.com.example.controleProjetoIntegrador.models;
+package com.example.controleProjetoIntegrador.models;
 import jakarta.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "projeto")
