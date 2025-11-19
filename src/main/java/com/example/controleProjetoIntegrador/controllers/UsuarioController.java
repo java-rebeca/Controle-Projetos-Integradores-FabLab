@@ -1,0 +1,58 @@
+package com.example.controleProjetoIntegrador.controllers;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import com.example.controleProjetoIntegrador.models.Usuario;
+import com.example.controleProjetoIntegrador.services.UsuarioService;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.server.ResponseStatusException;
+
+@RestController
+@RequestMapping("/usuarios")
+public class UsuarioController {
+    @Autowired
+    private UsuarioService usuarioService;
+
+    @PostMapping
+    public ResponseEntity<Usuario> criarUsuario(@RequestBody Usuario usuario) {
+        Usuario u = usuarioService.cadastrarUsuario(usuario);
+        return new ResponseEntity<>(u, HttpStatus.CREATED);
+    }
+
+    @PostMapping("/login")
+    public String loginUsuario(@RequestParam String email, @RequestParam String senha) {
+        boolean autenticado = usuarioService.autenticarUsuario(email, senha);
+        if (autenticado) {
+            return "Login bem-sucedido!";
+        } else {
+            throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Credenciais inválidas");
+        }
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<Usuario> obterUsuarioPorId(@PathVariable Integer id) {
+        Usuario u = usuarioService.obterUsuarioPorId(id);
+        return ResponseEntity.ok(u);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deletarUsuario(@PathVariable Integer id) {
+        usuarioService.deletarUsuario(id);
+        return ResponseEntity.noContent().build();
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<Usuario> atualizarUsuario(@PathVariable Integer id, @RequestBody Usuario usuario) {
+        Usuario u = usuarioService.atualizarUsuario(id, usuario);
+        return ResponseEntity.ok(u);
+    }
+}
