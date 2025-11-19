@@ -21,9 +21,14 @@ public class UsuarioService{
         return ur.findById(id).orElse(null);
     }
 
-    public boolean loginUsuario(String email, String senha){
-        Usuario u = ur.findUserByEmail(email);
-        return (u != null && u.getSenha().equals(senha));
+    public boolean loginUsuario(String email, String senha, String confSenha){
+        if (senha.equals(confSenha)){
+            Usuario u = ur.findUserByEmail(email);
+            return (u != null && u.getSenha().equals(senha));
+        }
+        else{
+            return false;
+        }
     }
 
     public void deletarUsuario(Integer id){
@@ -38,6 +43,7 @@ public class UsuarioService{
         Usuario _u = ur.findById(id).orElse(null);
         if (_u == null) return null;
         _u.setCpf(u.getCpf());
+        _u.setNome(u.getNome());
         _u.setEmail(u.getEmail());
         _u.setSenha(u.getSenha());
         return ur.save(_u);

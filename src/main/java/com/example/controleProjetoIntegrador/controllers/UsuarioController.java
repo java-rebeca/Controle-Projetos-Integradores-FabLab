@@ -29,8 +29,8 @@ public class UsuarioController {
     }
 
     @PostMapping("/login")
-    public String loginUsuario(@RequestParam String email, @RequestParam String senha) {
-        boolean autenticado = usuarioService.loginUsuario(email, senha);
+    public String loginUsuario(@RequestParam String email, @RequestParam String senha, @RequestParam String confSenha) {
+        boolean autenticado = usuarioService.loginUsuario(email, senha, confSenha);
         if (autenticado) {
             return "Login bem-sucedido!";
         } else {
