@@ -4,13 +4,14 @@ import org.springframework.stereotype.Service;
 import org.springframework.beans.factory.annotation.Autowired;
 import com.example.controleProjetoIntegrador.repositories.UsuarioRepository;
 import com.example.controleProjetoIntegrador.models.Usuario;
+import java.util.List;
 
 
 @Service
 public class UsuarioService{
 
     @Autowired
-    UsuarioRepository ur;
+    private UsuarioRepository ur;
 
     public Usuario cadastrarUsuario(Usuario u){
         return ur.save(u);
@@ -22,11 +23,7 @@ public class UsuarioService{
 
     public boolean loginUsuario(String email, String senha){
         Usuario u = ur.findUserByEmail(email);
-        if(u != null && u.getSenha().equals(senha)){
-            return true;
-        } else {
-            return false;
-        }
+        return (u != null && u.getSenha().equals(senha));
     }
 
     public void deletarUsuario(Integer id){
@@ -38,7 +35,8 @@ public class UsuarioService{
     }
 
     public Usuario atualizarUsuario(Usuario u, Integer id){
-        _u = ur.findById(id).orElse(null);
+        Usuario _u = ur.findById(id).orElse(null);
+        if (_u == null) return null;
         _u.setCpf(u.getCpf());
         _u.setEmail(u.getEmail());
         _u.setSenha(u.getSenha());

@@ -1,4 +1,4 @@
-package java.com.example.controleProjetoIntegrador.models;
+package com.example.controleProjetoIntegrador.models;
 import jakarta.persistence.*;
 
 
