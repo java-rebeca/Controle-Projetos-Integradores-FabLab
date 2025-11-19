@@ -3,8 +3,6 @@
 O Controle de Projetos Integradores do FabLab é uma API desenvolvida para gerenciar, de forma eficiente e centralizada, as principais atividades relacionadas aos projetos integradores realizados no ambiente do FabLab.
 O sistema permite controlar usuários, agendas e projetos, garantindo organização, rastreabilidade e facilidade de acesso às informações essenciais.
 
-Na minha visão, Senhora, este tipo de API é fundamental para manter um fluxo consistente de trabalho dentro de laboratórios colaborativos — especialmente quando diversos grupos e prazos precisam ser acompanhados simultaneamente.
-
 # Funcionalidades da API
 
 1. Usuários
