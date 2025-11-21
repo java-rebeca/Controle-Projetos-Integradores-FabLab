@@ -49,4 +49,11 @@ public class AgendaController {
         Agenda a = agendaService.atualizarAgenda(agenda, id);
         return ResponseEntity.ok(a);
     }
+
+    @GetMapping("/findall")
+    public ResponseEntity<Iterable<Agenda>> listarAgendas() {
+        Iterable<Agenda> agendas = agendaService.listarAgendas();
+        return ResponseEntity.ok(agendas);
+    }
+    
 }

@@ -52,4 +52,10 @@ public class ProjetoController {
         }
         return ResponseEntity.ok(p);
     }
+
+    @GetMapping("/findall")
+    public ResponseEntity<Iterable<Projeto>> listarProjetos() {
+        Iterable<Projeto> projetos = projetoService.listarProjetos();
+        return ResponseEntity.ok(projetos);
+    }
 }

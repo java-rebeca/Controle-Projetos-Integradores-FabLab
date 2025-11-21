@@ -24,7 +24,7 @@ public class UsuarioController {
     private UsuarioService usuarioService;
 
     // alterado: recebe confSenha como RequestParam para validação na criação
-    @PostMapping
+    @PostMapping("/cadastro")
     public ResponseEntity<Usuario> criarUsuario(@RequestBody Usuario usuario, @RequestParam String confSenha) {
         Usuario u = usuarioService.cadastrarUsuario(usuario, confSenha);
         if (u == null) {
@@ -66,5 +66,11 @@ public class UsuarioController {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND);
         }
         return ResponseEntity.ok(u);
+    }
+
+    @GetMapping("/findall")
+    public ResponseEntity<Iterable<Usuario>> listarUsuarios() {
+        Iterable<Usuario> usuarios = usuarioService.listarUsuarios();
+        return ResponseEntity.ok(usuarios);
     }
 }
