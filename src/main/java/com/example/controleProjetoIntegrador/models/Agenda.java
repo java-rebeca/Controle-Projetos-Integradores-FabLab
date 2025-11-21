@@ -3,6 +3,8 @@ import jakarta.persistence.*;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 @Entity
 @Table(name = "agenda")
 public class Agenda{
@@ -15,6 +17,7 @@ public class Agenda{
     @Column(name = "data")
     private LocalDate data;
 
+    @JsonFormat(pattern = "HH:mm")
     @Column(name = "horario")
     private LocalTime horario;
 
