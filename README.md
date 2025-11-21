@@ -42,3 +42,5 @@ Isabela Santos
 Geovanna Telles
 
 Rebeca Mendes
+
+Link do Swagger: [controle-projetos-integradores-fablab-xubu](https://controle-projetos-integradores-fablab-xubu.onrender.com/swagger-ui.html
