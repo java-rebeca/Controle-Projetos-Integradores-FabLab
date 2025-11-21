@@ -31,6 +31,8 @@ O sistema permite controlar usuários, agendas e projetos, garantindo organizaç
 
 - Acompanhamento da evolução dos trabalhos
 
+Link do Swagger: [controle-projetos-integradores-fablab-xubu](https://controle-projetos-integradores-fablab-xubu.onrender.com/controle-projeto-integrador/swagger-ui.html
+
 # Membros do Projeto
 
 Maria Clara Fonseca
@@ -43,4 +45,4 @@ Geovanna Telles
 
 Rebeca Mendes
 
-Link do Swagger: [controle-projetos-integradores-fablab-xubu](https://controle-projetos-integradores-fablab-xubu.onrender.com/controle-projeto-integrador/swagger-ui.html
+
