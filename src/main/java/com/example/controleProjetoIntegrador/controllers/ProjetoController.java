@@ -1,19 +1,20 @@
 package com.example.controleProjetoIntegrador.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.server.ResponseStatusException;
+
 import com.example.controleProjetoIntegrador.models.Projeto;
 import com.example.controleProjetoIntegrador.services.ProjetoService;
-import org.springframework.http.HttpStatus;
-import org.springframework.web.server.ResponseStatusException;
 
 @RestController
 @RequestMapping("/projeto")
@@ -44,8 +45,8 @@ public class ProjetoController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Projeto> atualizarProjeto(@PathVariable Integer id, @RequestBody Projeto projeto) {
-        Projeto p = projetoService.atualizarProjeto(projeto, id);
+    public ResponseEntity<Projeto> atualizarProjeto(@PathVariable Integer id, @PathVariable Integer idUsuario, @PathVariable Integer idAgenda, @RequestBody Projeto projeto) {
+        Projeto p = projetoService.atualizarProjeto(projeto, id, idUsuario, idAgenda);
         if (p == null) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND);
         }
