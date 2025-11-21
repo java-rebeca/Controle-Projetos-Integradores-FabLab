@@ -49,4 +49,8 @@ public class UsuarioService{
         _u.setSenha(u.getSenha());
         return ur.save(_u);
     }
+
+    public Usuario findUserByEmail(String email) {
+        return ur.findUserByEmail(email);
+    }
 }

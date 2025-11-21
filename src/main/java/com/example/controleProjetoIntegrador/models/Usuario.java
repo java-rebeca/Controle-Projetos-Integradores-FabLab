@@ -35,6 +35,13 @@ public class Usuario{
         this.cpf = cpf;
         this.senha = senha;
     }
+    public Usuario(Integer usuarioId, String nome, String email, String cpf, String senha) {
+        this.nome = nome;
+        this.email = email;
+        this.cpf = cpf;
+        this.senha = senha;
+        this.usuarioId = usuarioId;
+    }
 
     public Integer getUsuarioId() {
         return usuarioId;

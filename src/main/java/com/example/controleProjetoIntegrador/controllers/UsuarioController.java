@@ -35,10 +35,10 @@ public class UsuarioController {
 
     // alterado: login não exige confSenha
     @PostMapping("/login")
-    public String loginUsuario(@RequestParam String email, @RequestParam String senha) {
+    public Usuario loginUsuario(@RequestParam String email, @RequestParam String senha) {
         boolean autenticado = usuarioService.loginUsuario(email, senha);
         if (autenticado) {
-            return "Login bem-sucedido!";
+            return usuarioService.buscarUsuarioPorId(usuarioService.findUserByEmail(email).getUsuarioId());
         } else {
             throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Credenciais inválidas");
         }
