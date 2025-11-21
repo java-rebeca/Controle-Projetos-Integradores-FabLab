@@ -1,3 +1,4 @@
+// ...existing code...
 package com.example.controleProjetoIntegrador.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,15 +23,20 @@ public class UsuarioController {
     @Autowired
     private UsuarioService usuarioService;
 
+    // alterado: recebe confSenha como RequestParam para validação na criação
     @PostMapping
-    public ResponseEntity<Usuario> criarUsuario(@RequestBody Usuario usuario) {
-        Usuario u = usuarioService.cadastrarUsuario(usuario);
+    public ResponseEntity<Usuario> criarUsuario(@RequestBody Usuario usuario, @RequestParam String confSenha) {
+        Usuario u = usuarioService.cadastrarUsuario(usuario, confSenha);
+        if (u == null) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Senhas não conferem");
+        }
         return new ResponseEntity<>(u, HttpStatus.CREATED);
     }
 
+    // alterado: login não exige confSenha
     @PostMapping("/login")
-    public String loginUsuario(@RequestParam String email, @RequestParam String senha, @RequestParam String confSenha) {
-        boolean autenticado = usuarioService.loginUsuario(email, senha, confSenha);
+    public String loginUsuario(@RequestParam String email, @RequestParam String senha) {
+        boolean autenticado = usuarioService.loginUsuario(email, senha);
         if (autenticado) {
             return "Login bem-sucedido!";
         } else {

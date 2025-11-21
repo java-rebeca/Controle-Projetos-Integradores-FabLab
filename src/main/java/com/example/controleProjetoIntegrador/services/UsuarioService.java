@@ -1,3 +1,4 @@
+// ...existing code...
 package com.example.controleProjetoIntegrador.services;
 
 import org.springframework.stereotype.Service;
@@ -13,22 +14,22 @@ public class UsuarioService{
     @Autowired
     private UsuarioRepository ur;
 
-    public Usuario cadastrarUsuario(Usuario u){
+    // alterado: agora recebe confSenha e valida antes de salvar
+    public Usuario cadastrarUsuario(Usuario u, String confSenha){
+        if (u == null || u.getSenha() == null || !u.getSenha().equals(confSenha)){
+            return null;
+        }
         return ur.save(u);
+    }
+
+    // alterado: login não recebe mais confSenha
+    public boolean loginUsuario(String email, String senha){
+        Usuario u = ur.findUserByEmail(email);
+        return (u != null && u.getSenha().equals(senha));
     }
 
     public Usuario buscarUsuarioPorId(Integer id){
         return ur.findById(id).orElse(null);
-    }
-
-    public boolean loginUsuario(String email, String senha, String confSenha){
-        if (senha.equals(confSenha)){
-            Usuario u = ur.findUserByEmail(email);
-            return (u != null && u.getSenha().equals(senha));
-        }
-        else{
-            return false;
-        }
     }
 
     public void deletarUsuario(Integer id){
