@@ -16,7 +16,9 @@ public class ProjetoService {
 
     @Autowired
     private ProjetoRepository pr;
+    @Autowired
     private UsuarioRepository ur;
+    @Autowired
     private AgendaRepository ar;
 
     public Projeto cadastrarProjeto(Projeto p){

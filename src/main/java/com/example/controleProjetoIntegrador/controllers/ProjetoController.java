@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
@@ -45,7 +46,7 @@ public class ProjetoController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Projeto> atualizarProjeto(@PathVariable Integer id, @PathVariable Integer idUsuario, @PathVariable Integer idAgenda, @RequestBody Projeto projeto) {
+    public ResponseEntity<Projeto> atualizarProjeto(@PathVariable Integer id, @RequestParam Integer idUsuario, @RequestParam Integer idAgenda, @RequestBody Projeto projeto) {
         Projeto p = projetoService.atualizarProjeto(projeto, id, idUsuario, idAgenda);
         if (p == null) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND);
