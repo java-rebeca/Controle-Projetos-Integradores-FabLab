@@ -33,7 +33,7 @@ O sistema permite controlar usuários, agendas e projetos, garantindo organizaç
 
 Link do Swagger: [controle-projetos-integradores-fablab-xubu](https://controle-projetos-integradores-fablab-xubu.onrender.com/controle-projeto-integrador/swagger-ui.html
 
-#Slide da apresentação
+# Slide da apresentação
 https://www.canva.com/design/DAG5m8CKM9I/DtatVDV6h6txfwqo8DSNDA/edit
 
 
