@@ -36,6 +36,8 @@ Link do Swagger: [controle-projetos-integradores-fablab-xubu](https://controle-p
 # Slide da apresentação
 https://www.canva.com/design/DAG5m8CKM9I/DtatVDV6h6txfwqo8DSNDA/edit
 
+# Link da Documentação
+https://docs.google.com/document/d/117_89x5AAysgX98dLyacTzW4A51SMJ2z6hmr6C4PBMA/edit?usp=sharing
 
 # Membros do Projeto
 
