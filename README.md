@@ -29,12 +29,13 @@ O sistema permite controlar usuários, agendas e projetos, garantindo organizaç
 
 - Registro de etapas, status e documentação
 
-  #Slide da apresentação
-  https://www.canva.com/design/DAG5m8CKM9I/DtatVDV6h6txfwqo8DSNDA/edit
-
 - Acompanhamento da evolução dos trabalhos
 
 Link do Swagger: [controle-projetos-integradores-fablab-xubu](https://controle-projetos-integradores-fablab-xubu.onrender.com/controle-projeto-integrador/swagger-ui.html
+
+#Slide da apresentação
+https://www.canva.com/design/DAG5m8CKM9I/DtatVDV6h6txfwqo8DSNDA/edit
+
 
 # Membros do Projeto
 
